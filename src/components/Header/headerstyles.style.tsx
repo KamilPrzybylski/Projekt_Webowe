@@ -64,10 +64,11 @@ export const LogoContainer = styled.div`
     background-repeat: no-repeat;
     background-size: inherit;
     background-position: center;
+    z-index: 1;
 `;
 
 export const MiniLogo = styled.img`
     margin-left: 5px;
-     width: 350px;
+     width: auto;
      height: 100px;
 `;

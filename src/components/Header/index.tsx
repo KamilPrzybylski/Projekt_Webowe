@@ -1,6 +1,7 @@
 import "./headerstyles.style.tsx"
 import logo from '../../../public/logo1.png'
 import {HeaderContainer, LogoContainer, MiniLogo, Nav, NavPackage, StyledLink} from "./headerstyles.style.tsx";
+import DropdownMenu from "../dropDownMenu";
 
 const Header = () => {
     return (
@@ -8,12 +9,13 @@ const Header = () => {
             <Nav>
                 <MiniLogo src={logo} />
                 <NavPackage>
-                    <StyledLink to="/home">Strona 1</StyledLink>
-                    <StyledLink to="/about">Strona 2</StyledLink>
-                    <StyledLink to="/catalog">Strona 3</StyledLink>
+                    <StyledLink to="/about">About</StyledLink>
+                    <StyledLink to="/faq">FAQ</StyledLink>
+                    <StyledLink to="/terms">Terms</StyledLink>
+                    <DropdownMenu />
                 </NavPackage>
             </Nav>
-            <LogoContainer />
+            <LogoContainer title="logo" />
         </HeaderContainer>
 
     );
