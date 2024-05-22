@@ -1,11 +1,33 @@
 import styled from "styled-components";
 
 export const FooterContainer = styled.footer`
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  padding: 20px;
+`;
 
-    background-color: #000;
-    color: #fff;
-    max-width: 100%;
-    height: 220px;
+export const Side = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & img {
+    margin-bottom: 10px;
+    height: 100px;
     width: auto;
+  }
 
+  & ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    line-height: 22.5px;
+  }
+
+  & ul li a {
+    color: white;
+    text-decoration: none;
+  }
 `;
