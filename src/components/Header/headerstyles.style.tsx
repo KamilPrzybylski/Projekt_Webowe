@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import logo from '../../../public/logo-color.png';
 
 export const HeaderContainer = styled.header`
      display: flex;
@@ -8,7 +7,6 @@ export const HeaderContainer = styled.header`
      align-items: center;
      justify-content: space-between;
      width: 100%;
-     height: 50vh;
      padding: 0;
      margin: 0 auto;
      background-color: #f8f9fa;
@@ -58,13 +56,14 @@ export const LogoContainer = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 85vh;
+    height: 35vh;
     background-color: #656565;
-    background-image: url(${logo});
-    background-repeat: no-repeat;
-    background-size: inherit;
-    background-position: center;
     z-index: 1;
+
+    & img {
+        height: 80%;
+        width: auto;
+    }
 `;
 
 export const MiniLogo = styled.img`

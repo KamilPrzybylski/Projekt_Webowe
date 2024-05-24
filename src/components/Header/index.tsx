@@ -1,5 +1,6 @@
 import "./headerstyles.style.tsx"
-import logo from '../../../public/logo1.png'
+import logo from '../../png/logo1.png'
+import colorLogo from "../../png/logo-no-background.png";
 import {HeaderContainer, LogoContainer, MiniLogo, Nav, NavPackage, StyledLink} from "./headerstyles.style.tsx";
 import DropdownMenu from "../dropDownMenu";
 
@@ -15,7 +16,9 @@ const Header = () => {
                     <DropdownMenu />
                 </NavPackage>
             </Nav>
-            <LogoContainer title="logo" />
+            <LogoContainer title="logo" >
+                <img src={colorLogo} alt={"logo"}/>
+            </LogoContainer>
         </HeaderContainer>
 
     );
