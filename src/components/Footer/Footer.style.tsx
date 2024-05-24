@@ -11,11 +11,11 @@ export const FooterContainer = styled.footer`
 export const Side = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  text-align: right;
 
   & img {
     margin-bottom: 10px;
-    height: 100px;
+    height: 120px;
     width: auto;
   }
 
@@ -29,5 +29,18 @@ export const Side = styled.div`
   & ul li a {
     color: white;
     text-decoration: none;
+  }
+`;
+
+export const ImgSide = styled(Side)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: start;
+
+  & img {
+    margin-bottom: 10px;
+    height: 120px;
+    width: auto;
   }
 `;
