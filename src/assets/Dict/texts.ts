@@ -12,6 +12,35 @@ export const texts = {
 
         usedCarsTitle: "Używane Samochody",
         usedCarsContent: "Nasz zasób używanych samochodów jest jednym z największych w regionie. Każdy używany samochód jest dokładnie sprawdzany przez naszych doświadczonych mechaników, aby zapewnić, że spełnia nasze wysokie standardy jakości. Oferujemy szeroki zakres marek i modeli, aby sprostać różnym potrzebom i budżetom naszych klientów."
-    }
-    
+    },
+
+    contact:{
+        title: "Kontakt",
+        tel: "+48 123 456 789",
+        eMail: "kontakt@salon.pl",
+        location: "ul. Nałęczowska 10, 00-123 Warszawa"
+    },
+
+    faq: {
+        title: "FAQ",
+        questions: [
+          {
+            question: "Jakie są godziny otwarcia salonu?",
+            answer: "Salon jest otwarty od poniedziałku do piątku w godzinach 9:00 - 18:00 oraz w soboty od 10:00 - 15:00."
+          },
+          {
+            question: "Czy oferujecie jazdy próbne?",
+            answer: "Tak, oferujemy jazdy próbne dla większości naszych samochodów. Prosimy o wcześniejsze umówienie terminu."
+          },
+          {
+            question: "Jakie są opcje finansowania?",
+            answer: "Oferujemy różne opcje finansowania, w tym kredyty i leasing. Zapraszamy do kontaktu z naszym działem finansowym."
+          },
+          {
+            question: "Czy mogę zarezerwować samochód online?",
+            answer: "Tak, możesz zarezerwować samochód online przez naszą stronę internetową lub kontaktując się bezpośrednio z naszym salonem."
+          }
+        ]
+      }
+   
   };

@@ -1,6 +1,6 @@
 import "./Footer.style.tsx";
 import miniLogo from "../../png/logo-white.png";
-import { FooterContainer, Side } from "./Footer.style.tsx";
+import { FooterContainer, Side, ImgSide } from "./Footer.style.tsx";
 import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
@@ -16,14 +16,15 @@ const Footer: React.FC = () => {
             <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">API</a></li>
           </ul>
         </Side>
-        <Side>
+        <ImgSide>
           <img src={miniLogo} alt="Logo-white-version" />
-          <p>&copy; 2024 Twoja strona. Wszelkie prawa zastrzeżone.</p>
-        </Side>
+          <p>&copy; 2024 CDealer. Wszelkie prawa zastrzeżone.</p>
+        </ImgSide>
         <Side>
-          <p>Autor 1: Imię Nazwisko</p>
-          <p>Autor 2: Imię Nazwisko</p>
-          <p>Autor 3: Imię Nazwisko</p>
+          <p>Autorzy: </p>
+          <p>Wojciech Weiss</p>
+          <p>Jakub Wierzejewski</p>
+          <p>Kamil Przybylski</p>
         </Side>
       </FooterContainer>
     );
