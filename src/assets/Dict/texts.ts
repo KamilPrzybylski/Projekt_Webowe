@@ -41,6 +41,36 @@ export const texts = {
             answer: "Tak, możesz zarezerwować samochód online przez naszą stronę internetową lub kontaktując się bezpośrednio z naszym salonem."
           }
         ]
-      }
-   
+      },
+
+    terms:{
+      title: "Terms and Conditions",
+      content: [
+        {
+          id: 1,
+          title: "Intellectual Property",
+          text: "All content on this website, including text, graphics, logos, images, audio clips, digital downloads, and data compilations, is the property of our company or its content suppliers and is protected by international copyright laws."
+        },
+        {
+          id: 2,
+          title: "Use of Website",
+          text: "You may use this website for lawful purposes only and in accordance with these terms and conditions. You agree not to use this website in any way that violates any applicable laws or regulations, or to engage in any conduct that restricts or inhibits anyone's use or enjoyment of the website."
+        },
+        {
+          id: 3,
+          title: "User Account",
+          text: "In order to access certain features of this website, you may be required to create a user account. You are responsible for maintaining the confidentiality of your account information and for restricting access to your account."
+        },
+        {
+          id: 4,
+          title: "Limitation of Liability",
+          text: "Our company shall not be liable for any indirect, incidental, special, or consequential damages arising out of or in any way connected with the use of this website or with the delay or inability to use this website."
+        },
+        {
+          id: 5,
+          title: "Governing Law",
+          text: "These terms and conditions shall be governed by and construed in accordance with the laws of [Your Country], and you submit to the non-exclusive jurisdiction of the state and federal courts located in [Your State] for the resolution of any disputes."
+        }
+      ]
+    } 
   };
