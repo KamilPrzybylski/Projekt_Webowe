@@ -36,7 +36,7 @@ export const ImgSide = styled(Side)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: start;
+  text-align: center;
 
   & img {
     margin-bottom: 10px;

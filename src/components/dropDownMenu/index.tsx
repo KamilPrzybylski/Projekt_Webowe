@@ -20,7 +20,7 @@ const DropdownMenu = () => {
                 aria-controls={open ? 'basic-menu' : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
-                onClick = { handleClick }
+                onClick={handleClick}
                  />
             <StyledMenuList
                 id = "basic-menu"
