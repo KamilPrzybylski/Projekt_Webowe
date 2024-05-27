@@ -8,7 +8,9 @@ const Header = () => {
     return (
         <HeaderContainer>
             <Nav>
-                <MiniLogo src={logo} />
+                <StyledLink to="/">
+                    <MiniLogo src={logo} />
+                </StyledLink>
                 <NavPackage>
                     <StyledLink to="/about">About</StyledLink>
                     <StyledLink to="/faq">FAQ</StyledLink>

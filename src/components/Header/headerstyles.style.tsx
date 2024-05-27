@@ -7,6 +7,7 @@ export const HeaderContainer = styled.header`
      align-items: center;
      justify-content: space-between;
      width: 100%;
+     height: auto;
      padding: 0;
      margin: 0 auto;
      background-color: #f8f9fa;
@@ -47,7 +48,7 @@ export const Nav = styled.nav`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 15vh;
+    height: auto;
     background-color: #000;
 `;
 
@@ -56,18 +57,19 @@ export const LogoContainer = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 35vh;
+    height: auto;
     background-color: #656565;
     z-index: 1;
 
     & img {
-        height: 80%;
-        width: auto;
+        margin: 20px;
+        height: auto;
+        width: 33%;
     }
 `;
 
 export const MiniLogo = styled.img`
-    margin-left: 5px;
-     width: auto;
-     height: 100px;
+    padding: 15px;
+    width: 90%;
+    height: auto;
 `;

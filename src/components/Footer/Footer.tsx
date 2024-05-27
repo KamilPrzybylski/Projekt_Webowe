@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
         </Side>
         <ImgSide>
           <img src={miniLogo} alt="Logo-white-version" />
-          <p>&copy; 2024 CDealer. Wszelkie prawa zastrzeżone.</p>
+          <p>&copy; 2024 CDealer.<br/>Wszelkie prawa zastrzeżone.</p>
         </ImgSide>
         <Side>
           <p>Autorzy: </p>
