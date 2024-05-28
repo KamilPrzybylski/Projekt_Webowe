@@ -2,7 +2,7 @@ import "./headerstyles.style.tsx"
 import logo from '../../png/logo1.png'
 import colorLogo from "../../png/logo-no-background.png";
 import {HeaderContainer, LogoContainer, MiniLogo, Nav, NavPackage, StyledLink} from "./headerstyles.style.tsx";
-import DropdownMenu from "../dropDownMenu";
+import DropdownMenu from "../dropDownMenu/index.tsx";
 
 const Header = () => {
     return (

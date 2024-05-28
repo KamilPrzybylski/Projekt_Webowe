@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cdealer`
+-- Database: `cdeler`
 --
 
 -- --------------------------------------------------------
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cars` (
-  `carID` int(11) NOT NULL,
+  `car_id` int(11) NOT NULL,
   `brand` varchar(200) NOT NULL,
   `model` varchar(255) NOT NULL,
   `photo` varchar(100) NOT NULL,
@@ -37,17 +37,17 @@ CREATE TABLE `cars` (
   `mileage` int(11) NOT NULL DEFAULT 120000,
   `color` varchar(45) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
-  `Engines_engineID` int(11) NOT NULL,
-  `fuelID` int(11) NOT NULL,
-  `categorieID` int(11) NOT NULL,
-  `transactionID` int(11) NOT NULL
+  `Engines_engine_id` int(11) NOT NULL,
+  `fuel_id` int(11) NOT NULL,
+  `categorie_id` int(11) NOT NULL,
+  `transaction_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `cars`
 --
 
-INSERT INTO `cars` (`carID`, `brand`, `model`, `photo`, `vin`, `driveType`, `mileage`, `color`, `description`, `Engines_engineID`, `fuelID`, `categorieID`, `transactionID`) VALUES
+INSERT INTO `cars` (`car_id`, `brand`, `model`, `photo`, `vin`, `driveType`, `mileage`, `color`, `description`, `Engines_engine_id`, `fuel_id`, `categorie_id`, `transaction_id`) VALUES
 (1, 'Toyota', 'Corolla', 'toyota.png', 'JTDKB20U803923878', 'FWD', 50000, 'Blue', 'Sprowadzony z Japonii, jedynie jeden właściciel, regularnie serwisowany.', 1, 1, 2, 1),
 (2, 'Honda', 'Civic', 'honda.png', '1HGEJ6572WL036485', 'FWD', 60000, 'Silver', 'Samochód miejski, niskie spalanie, w pełni sprawny technicznie.', 2, 1, 2, 1),
 (3, 'Volkswagen', 'Golf', 'volkswagen.png', 'WVWZZZ1HZSW364290', 'FWD', 75000, 'Black', 'Auto rodzinne, przegląd ważny do końca roku, bezwypadkowe.', 3, 2, 2, 1),
@@ -76,7 +76,7 @@ INSERT INTO `cars` (`carID`, `brand`, `model`, `photo`, `vin`, `driveType`, `mil
 --
 
 CREATE TABLE `categories` (
-  `categorieID` int(11) NOT NULL,
+  `categorie_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -85,7 +85,7 @@ CREATE TABLE `categories` (
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`categorieID`, `name`, `description`) VALUES
+INSERT INTO `categories` (`categorie_id`, `name`, `description`) VALUES
 (1, 'Sedan', 'Kategoria obejmująca samochody osobowe z zamkniętym nadwoziem.'),
 (2, 'SUV', 'Samochody terenowe z dużą przestrzenią wewnątrz.'),
 (3, 'Hatchback', 'Małe samochody z tylną klapą.'),
@@ -102,12 +102,13 @@ INSERT INTO `categories` (`categorieID`, `name`, `description`) VALUES
 --
 
 CREATE TABLE `clients` (
-  `clientID` int(11) NOT NULL,
+  `client_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `surname` varchar(150) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `nr_tel` varchar(20) NOT NULL,
-  `transactionID` int(11) NOT NULL
+  `transaction_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -117,12 +118,12 @@ CREATE TABLE `clients` (
 --
 
 CREATE TABLE `employees` (
-  `employeeID` int(11) NOT NULL,
+  `employee_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `surname` varchar(150) NOT NULL,
   `email` varchar(255) NOT NULL,
   `phone_nr` varchar(20) NOT NULL,
-  `positionID` int(11) NOT NULL
+  `position_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -132,7 +133,7 @@ CREATE TABLE `employees` (
 --
 
 CREATE TABLE `engines` (
-  `engineID` int(11) NOT NULL,
+  `engine_id` int(11) NOT NULL,
   `fuelConsumption` float NOT NULL,
   `power` int(11) NOT NULL,
   `Enginescol` float DEFAULT NULL
@@ -142,7 +143,7 @@ CREATE TABLE `engines` (
 -- Dumping data for table `engines`
 --
 
-INSERT INTO `engines` (`engineID`, `fuelConsumption`, `power`, `Enginescol`) VALUES
+INSERT INTO `engines` (`engine_id`, `fuelConsumption`, `power`, `Enginescol`) VALUES
 (1, 12, 220, 6),
 (2, 6, 130, 4),
 (3, 10, 90, 4),
@@ -158,7 +159,7 @@ INSERT INTO `engines` (`engineID`, `fuelConsumption`, `power`, `Enginescol`) VAL
 --
 
 CREATE TABLE `fuels` (
-  `fuelID` int(11) NOT NULL,
+  `fuel_id` int(11) NOT NULL,
   `type` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -166,7 +167,7 @@ CREATE TABLE `fuels` (
 -- Dumping data for table `fuels`
 --
 
-INSERT INTO `fuels` (`fuelID`, `type`) VALUES
+INSERT INTO `fuels` (`fuel_id`, `type`) VALUES
 (1, 'diesel'),
 (2, 'benzyna'),
 (3, 'gaz');
@@ -178,7 +179,7 @@ INSERT INTO `fuels` (`fuelID`, `type`) VALUES
 --
 
 CREATE TABLE `positions` (
-  `positionID` int(11) NOT NULL,
+  `position_id` int(11) NOT NULL,
   `name` varchar(60) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -190,7 +191,7 @@ CREATE TABLE `positions` (
 --
 
 CREATE TABLE `transactions` (
-  `transactionID` int(11) NOT NULL,
+  `transaction_id` int(11) NOT NULL,
   `transactionDate` date NOT NULL,
   `transactionValue` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -199,7 +200,7 @@ CREATE TABLE `transactions` (
 -- Dumping data for table `transactions`
 --
 
-INSERT INTO `transactions` (`transactionID`, `transactionDate`, `transactionValue`) VALUES
+INSERT INTO `transactions` (`transaction_id`, `transactionDate`, `transactionValue`) VALUES
 (1, '2024-05-12', 7800),
 (2, '2024-05-13', 7800),
 (3, '2024-05-14', 7800),
@@ -218,55 +219,55 @@ INSERT INTO `transactions` (`transactionID`, `transactionDate`, `transactionValu
 -- Indeksy dla tabeli `cars`
 --
 ALTER TABLE `cars`
-  ADD PRIMARY KEY (`carID`),
-  ADD KEY `fk_Cars_Engines` (`Engines_engineID`),
-  ADD KEY `fk_Cars_Fuels1` (`fuelID`),
-  ADD KEY `fk_Cars_Categories1` (`categorieID`),
-  ADD KEY `fk_Cars_Transactions1` (`transactionID`);
+  ADD PRIMARY KEY (`car_id`),
+  ADD KEY `fk_Cars_Engines` (`Engines_engine_id`),
+  ADD KEY `fk_Cars_Fuels1` (`fuel_id`),
+  ADD KEY `fk_Cars_Categories1` (`categorie_id`),
+  ADD KEY `fk_Cars_Transactions1` (`transaction_id`);
 
 --
 -- Indeksy dla tabeli `categories`
 --
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`categorieID`);
+  ADD PRIMARY KEY (`categorie_id`);
 
 --
 -- Indeksy dla tabeli `clients`
 --
 ALTER TABLE `clients`
-  ADD PRIMARY KEY (`clientID`),
-  ADD KEY `fk_Clients_Transactions1` (`transactionID`);
+  ADD PRIMARY KEY (`client_id`),
+  ADD KEY `fk_Clients_Transactions1` (`transaction_id`);
 
 --
 -- Indeksy dla tabeli `employees`
 --
 ALTER TABLE `employees`
-  ADD PRIMARY KEY (`employeeID`),
-  ADD KEY `fk_Employees_Positions1` (`positionID`);
+  ADD PRIMARY KEY (`employee_id`),
+  ADD KEY `fk_Employees_Positions1` (`position_id`);
 
 --
 -- Indeksy dla tabeli `engines`
 --
 ALTER TABLE `engines`
-  ADD PRIMARY KEY (`engineID`);
+  ADD PRIMARY KEY (`engine_id`);
 
 --
 -- Indeksy dla tabeli `fuels`
 --
 ALTER TABLE `fuels`
-  ADD PRIMARY KEY (`fuelID`);
+  ADD PRIMARY KEY (`fuel_id`);
 
 --
 -- Indeksy dla tabeli `positions`
 --
 ALTER TABLE `positions`
-  ADD PRIMARY KEY (`positionID`);
+  ADD PRIMARY KEY (`position_id`);
 
 --
 -- Indeksy dla tabeli `transactions`
 --
 ALTER TABLE `transactions`
-  ADD PRIMARY KEY (`transactionID`);
+  ADD PRIMARY KEY (`transaction_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -276,49 +277,49 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `carID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `car_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `categorieID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `categorie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `clientID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `employeeID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `engines`
 --
 ALTER TABLE `engines`
-  MODIFY `engineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `engine_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `fuels`
 --
 ALTER TABLE `fuels`
-  MODIFY `fuelID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `fuel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `positions`
 --
 ALTER TABLE `positions`
-  MODIFY `positionID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `position_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transactionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
@@ -328,22 +329,22 @@ ALTER TABLE `transactions`
 -- Constraints for table `cars`
 --
 ALTER TABLE `cars`
-  ADD CONSTRAINT `fk_Cars_Categories1` FOREIGN KEY (`categorieID`) REFERENCES `categories` (`categorieID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Cars_Engines` FOREIGN KEY (`Engines_engineID`) REFERENCES `engines` (`engineID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Cars_Fuels1` FOREIGN KEY (`fuelID`) REFERENCES `fuels` (`fuelID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Cars_Transactions1` FOREIGN KEY (`transactionID`) REFERENCES `transactions` (`transactionID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Cars_Categories1` FOREIGN KEY (`categorie_id`) REFERENCES `categories` (`categorie_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Cars_Engines` FOREIGN KEY (`Engines_engine_id`) REFERENCES `engines` (`engine_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Cars_Fuels1` FOREIGN KEY (`fuel_id`) REFERENCES `fuels` (`fuel_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Cars_Transactions1` FOREIGN KEY (`transaction_id`) REFERENCES `transactions` (`transaction_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `clients`
 --
 ALTER TABLE `clients`
-  ADD CONSTRAINT `fk_Clients_Transactions1` FOREIGN KEY (`transactionID`) REFERENCES `transactions` (`transactionID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Clients_Transactions1` FOREIGN KEY (`transaction_id`) REFERENCES `transactions` (`transaction_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `employees`
 --
 ALTER TABLE `employees`
-  ADD CONSTRAINT `fk_Employees_Positions1` FOREIGN KEY (`positionID`) REFERENCES `positions` (`positionID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Employees_Positions1` FOREIGN KEY (`position_id`) REFERENCES `positions` (`position_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

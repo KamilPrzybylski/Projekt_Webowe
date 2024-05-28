@@ -1,4 +1,3 @@
-import React from "react";
 import { FAQContainer, Title, Question, Answer, FAQItem } from './faqPageContent.style';
 import { texts } from '../../../assets/Dict/texts';
 

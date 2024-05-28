@@ -4,9 +4,9 @@ import MenuItem from '@mui/material/MenuItem';
 import LoginModal from "../Modals/modalLogin/modalLogin.tsx";
 
 const DropdownMenu = () => {
-    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const [anchorEl, setAnchorEl] = React.useState<null | SVGSVGElement>(null);
     const open = Boolean(anchorEl);
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const handleClick = (event: React.MouseEvent<SVGSVGElement>) => {
         setAnchorEl(event.currentTarget);
     };
     const handleClose = () => {
