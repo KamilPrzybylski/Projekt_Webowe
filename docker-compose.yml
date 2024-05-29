@@ -56,8 +56,6 @@ services:
     volumes:
       - ./cdeler_front:/app
       - /app/node_modules
-    networks: 
-     - network-backend
 
 networks:
   network-backend:
