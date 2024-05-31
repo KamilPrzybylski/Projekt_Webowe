@@ -2,15 +2,23 @@ import * as React from "react";
 import {StyledMenuIcon, StyledMenu, StyledMenuList} from './dropDownMenu.style.tsx';
 import MenuItem from '@mui/material/MenuItem';
 import LoginModal from "../Modals/modalLogin/modalLogin.tsx";
+import { useNavigate } from 'react-router-dom';
 
 const DropdownMenu = () => {
     const [anchorEl, setAnchorEl] = React.useState<null | SVGSVGElement>(null);
     const open = Boolean(anchorEl);
+    const navigate = useNavigate(); 
+
     const handleClick = (event: React.MouseEvent<SVGSVGElement>) => {
         setAnchorEl(event.currentTarget);
     };
     const handleClose = () => {
         setAnchorEl(null);
+    };
+
+    const handleNavigateToCars = () => {
+        handleClose();
+        navigate('/cars');
     };
 
     return (
@@ -32,7 +40,7 @@ const DropdownMenu = () => {
             }}
             >
                 <MenuItem onClick = { handleClose } >Profile</MenuItem>
-                <MenuItem onClick = { handleClose } >My account</MenuItem>
+                <MenuItem onClick={handleNavigateToCars}>Cars</MenuItem>
                 <LoginModal handleLoginClose={handleClose} />
                 <MenuItem onClick = { handleClose }>Logout</MenuItem>
             </StyledMenuList>

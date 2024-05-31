@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
-import { MenuItem } from '@mui/material';
+import { MenuItem, Snackbar } from '@mui/material';
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import { StyledTextField, CustomDialog, CustomDialogTitle, CustomDialogContent, CustomDialogActions, LoginButton, CancelButton } from './modalLogin.style';
+
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 interface Props {
     handleLoginClose: () => void;
@@ -8,6 +13,11 @@ interface Props {
 
 const LoginModal: React.FC<Props> = ({ handleLoginClose }) => { 
     const [open, setOpen] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState('');
+    const [snackbarSeverity, setSnackbarSeverity] = useState<'success' | 'error'>('success');
   
     const handleLoginOpen = () => {
       setOpen(true);
@@ -18,9 +28,31 @@ const LoginModal: React.FC<Props> = ({ handleLoginClose }) => {
       handleLoginClose();
     };
   
-    const handleLogin = () => {
-      // logika logowania, wysłanie danych do db
-      handleLoginCloseModal(); // Zamknięcie okna modalnego po zalogowaniu
+    const handleLogin = async () => {
+      const response = await fetch('http://localhost:3000/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        document.cookie = `user=${JSON.stringify(data.user)}; path=/`;
+        setSnackbarMessage('Login successful');
+        setSnackbarSeverity('success');
+        setSnackbarOpen(true);
+        handleLoginCloseModal();
+      } else {
+        setSnackbarMessage('Invalid credentials');
+        setSnackbarSeverity('error');
+        setSnackbarOpen(true);
+      }
+    };
+
+    const handleSnackbarClose = () => {
+      setSnackbarOpen(false);
     };
   
     return (
@@ -35,6 +67,8 @@ const LoginModal: React.FC<Props> = ({ handleLoginClose }) => {
               variant="outlined"
               fullWidth
               margin="normal"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <StyledTextField
               name="password"
@@ -43,6 +77,8 @@ const LoginModal: React.FC<Props> = ({ handleLoginClose }) => {
               variant="outlined"
               fullWidth
               margin="normal"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </CustomDialogContent>
           <CustomDialogActions>
@@ -50,6 +86,11 @@ const LoginModal: React.FC<Props> = ({ handleLoginClose }) => {
             <LoginButton onClick={handleLogin}>Login</LoginButton>
           </CustomDialogActions>
         </CustomDialog>
+        <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleSnackbarClose}>
+        <Alert onClose={handleSnackbarClose} severity={snackbarSeverity}>
+          {snackbarMessage}
+        </Alert>
+      </Snackbar>
       </>
     );
   };

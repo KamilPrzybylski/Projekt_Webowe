@@ -34,7 +34,7 @@ model cars {
 
 model categories {
   categorie_id Int     @id @default(autoincrement())
-  name         String  @db.VarChar(100)
+  name         String  @db.VarChar(100) @unique
   description  String? @db.VarChar(255)
   cars         cars[]
 }

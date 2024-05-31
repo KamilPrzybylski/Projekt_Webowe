@@ -56,7 +56,7 @@ const CarsComponent: React.FC = () => {
             {cars.map(car => (
             <li key={car.car_id}>
                 <img src={`src/png/photos/${car.photo}`} alt='car photo'/>
-                <p>{car.brand} {car.model} - {car.mileage} miles</p>
+                <p>{car.brand} {car.model} - {car.mileage}km</p>
             </li>
             ))}
         </ul>

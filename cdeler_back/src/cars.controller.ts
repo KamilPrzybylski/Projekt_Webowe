@@ -5,11 +5,6 @@ import { PrismaService } from './prisma.service';
 export class CarsController {
   constructor(private readonly prisma: PrismaService) {}
 
-  @Get()
-  async getCars() {
-    return this.prisma.cars.findMany();
-  }
-
   @Get('/used')
   async findUsed() {
     return this.prisma.cars.findMany({
@@ -41,4 +36,34 @@ export class CarsController {
       }
     });
   }
+
+  @Get()
+  async findCars() {
+    return this.prisma.cars.findMany({
+      select: {
+        brand: true,
+        model: true,
+        mileage: true,
+        driveType: true,
+        photo: true,
+        fuels: {
+          select: {
+            type: true,
+          },
+        },
+        engines: {
+          select: {
+            power: true,
+            Enginescol: true,
+          },
+        },
+        categories: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
+  }
 }
+
