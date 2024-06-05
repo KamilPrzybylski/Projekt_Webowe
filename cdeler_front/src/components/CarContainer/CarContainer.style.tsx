@@ -6,26 +6,26 @@ export const CarDetailsContainer = styled(Grid)`
   width: 100%;
   height: auto;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
   background-color: #333;
   color: #fff;
   padding: 20px;
-  margin: 20px;
   border-radius: 10px;
 `;
 
 export const ImageContainer = styled.div`
-  min-width: 90%;
+  width: 90%;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
 `;
 
 export const CarImage = styled.img`
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
 `;
 

@@ -16,4 +16,10 @@ export const CarContainer = styled.div`
 export const CarItem = styled.div`
   flex: 1 1 calc(33.333% - 20px);
   box-sizing: border-box;
+  @media (max-width: 1048px) {
+    flex: 1 1 calc(50% - 20px);;
+  }
+  @media (max-width: 768px) {
+    flex: 1 1 calc(100% - 20px);;
+  }
 `;
