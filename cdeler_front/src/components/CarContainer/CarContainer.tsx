@@ -10,7 +10,7 @@ interface CarDetailsProps {
 
 const CarDetails: React.FC<CarDetailsProps> = ({ image, model, manufacturer, details }) => {
 
-    const detales = details.split(' ');
+    const detales = details.split(';');
     console.log(detales);
 
     return (

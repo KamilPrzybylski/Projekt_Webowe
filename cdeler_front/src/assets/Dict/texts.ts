@@ -72,5 +72,32 @@ export const texts = {
           text: "These terms and conditions shall be governed by and construed in accordance with the laws of [Your Country], and you submit to the non-exclusive jurisdiction of the state and federal courts located in [Your State] for the resolution of any disputes."
         }
       ]
-    } 
+    },
+
+    Sitemap:{
+      title: "NAGŁÓWEK:",
+      content: [
+        {
+          id: 1,
+          title: "Strona główna:",
+          text: "Na stronie głównej znajduje się nasza oferta samochodów oraz skróty do innych do strony About Us, Contact, Faq i Terms",
+        },
+        {
+          id: 2,
+          title: "About Us:",
+          text: "Tutaj znajdziesz informacje kim jesteśmy, jaka jest nasza misja w świecie motoryzacji oraz o naszej ofercie.",
+        },
+        {
+          id: 3,
+          title: "Terms:",
+          text: "W tym miejscu znajdują się najpotrzebniejsze informacje o naszym regulamie korzystania.",
+        },
+        {
+          id: 4,
+          title: "Faq:",
+          text: "Tutaj są wszystkie często zadawane nam pytania m.in jakie są godziny otwarcia salonu lub informacje o opcjach finansowania",
+        }
+      ]
+    }
+
   };

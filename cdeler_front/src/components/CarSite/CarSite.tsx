@@ -68,7 +68,7 @@ const CarSite: React.FC = () => {
               image = {car.photo}
               model = {car.model}
               manufacturer = {car.brand}
-              details = {`${ car.driveType } ${car.mileage} ${car.fuels.type} ${car.engines.power} ${car.engines.Enginescol} ${car.categories.name}`} 
+              details = {`${ car.driveType };${car.mileage} km;${car.fuels.type};${car.engines.power} HP;${car.engines.Enginescol};${car.categories.name}`} 
             />
           </CarItem>
         ))}

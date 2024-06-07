@@ -8,6 +8,7 @@ import ContactPage from './pages/contactPage';
 import FAQPage from './pages/faqPage';
 import TermsPage from './pages/termsPage';
 import CarsPage from './pages/CarsPage';
+import SitemapPage from './pages/SitemapPage';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
                 <Route path="/faq" element={<FAQPage />} />
                 <Route path="/terms" element={<TermsPage />} />
                 <Route path="/Cars" element={<CarsPage />} />
+                <Route path="/Sitemap" element={<SitemapPage />} />
             </Routes>
         </Router>
     )

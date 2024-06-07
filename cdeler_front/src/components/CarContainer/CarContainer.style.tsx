@@ -8,6 +8,7 @@ export const CarDetailsContainer = styled(Grid)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   background-color: #333;
   color: #fff;
@@ -25,7 +26,8 @@ export const ImageContainer = styled.div`
 
 export const CarImage = styled.img`
   max-width: 100%;
-  height: auto;
+  height: 190px;
+  width: auto;
   border-radius: 10px;
 `;
 
