@@ -38,14 +38,18 @@ interface Props {
         <CustomDialog open={open} onClose={handleProfileCloseModal}>
           <CustomDialogTitle>Profile</CustomDialogTitle>
           <CustomDialogContent>
-            <Avatar sx={{ bgcolor: '#ff0000', width: 56, height: 56 }}>
-              {user.name.charAt(0)}
-            </Avatar>
+              {user?.email ? (
+                <Avatar sx={{ bgcolor: '#ff0000', width: 56, height: 56 }} >
+                  {user.email.charAt(0).toUpperCase()}
+                </Avatar>
+              ) : (
+                <Avatar sx={{ bgcolor: '#ff0000', width: 56, height: 56 }}>?</Avatar>
+              )}
             <UserInfo>
-              <UserDetail>Email: {user.email}</UserDetail>
-              <UserDetail>Phone: {user.nr_tel}</UserDetail>
-              <UserDetail>First Name: {user.name}</UserDetail>
-              <UserDetail>Last Name: {user.surname}</UserDetail>
+              <UserDetail>Email: {user?.email || 'N/A'}</UserDetail>
+              <UserDetail>Phone Number: {user?.phone || 'N/A'}</UserDetail>
+              <UserDetail>First Name: {user?.firstName || 'N/A'}</UserDetail>
+              <UserDetail>Last Name: {user?.lastName || 'N/A'}</UserDetail>
             </UserInfo>
           </CustomDialogContent>
           <CustomDialogActions>
