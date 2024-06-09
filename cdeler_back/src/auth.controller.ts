@@ -18,6 +18,9 @@ export class AuthController {
       user: {
         id: user.client_id,
         email: user.email,
+        firstName: user.name,
+        lastName: user.surname,
+        phone: user.nr_tel,
       },
     };
   }

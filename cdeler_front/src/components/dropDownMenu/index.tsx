@@ -3,6 +3,7 @@ import {StyledMenuIcon, StyledMenu, StyledMenuList} from './dropDownMenu.style.t
 import MenuItem from '@mui/material/MenuItem';
 import LoginModal from "../Modals/modalLogin/modalLogin.tsx";
 import { useNavigate } from 'react-router-dom';
+import ProfileModal from "../Modals/modalProfile/modalProfile.tsx";
 
 const DropdownMenu = () => {
     const [anchorEl, setAnchorEl] = React.useState<null | SVGSVGElement>(null);
@@ -39,7 +40,7 @@ const DropdownMenu = () => {
                     'aria-labelledby': 'basic-button',
             }}
             >
-                <MenuItem onClick = { handleClose } >Profile</MenuItem>
+                <ProfileModal handleProfileClose={handleClose} />
                 <MenuItem onClick={handleNavigateToCars}>Cars</MenuItem>
                 <LoginModal handleLoginClose={handleClose} />
                 <MenuItem onClick = { handleClose }>Logout</MenuItem>

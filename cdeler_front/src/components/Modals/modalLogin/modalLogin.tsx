@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MenuItem, Snackbar } from '@mui/material';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import Cookies from 'js-cookie';
 import { StyledTextField, CustomDialog, CustomDialogTitle, CustomDialogContent, CustomDialogActions, LoginButton, CancelButton } from './modalLogin.style';
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
@@ -40,9 +41,11 @@ const LoginModal: React.FC<Props> = ({ handleLoginClose }) => {
       if (response.ok) {
         const data = await response.json();
         document.cookie = `user=${JSON.stringify(data.user)}; path=/`;
+        Cookies.set('user', JSON.stringify(data.user));
         setSnackbarMessage('Login successful');
         setSnackbarSeverity('success');
         setSnackbarOpen(true);
+        console.log("działa gówno!!!");
         handleLoginCloseModal();
       } else {
         setSnackbarMessage('Invalid credentials');
