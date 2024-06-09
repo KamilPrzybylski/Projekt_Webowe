@@ -1,6 +1,7 @@
 import * as React from "react";
 import {StyledMenuIcon, StyledMenu, StyledMenuList} from './dropDownMenu.style.tsx';
 import MenuItem from '@mui/material/MenuItem';
+import Cookies from "js-cookie";
 import LoginModal from "../Modals/modalLogin/modalLogin.tsx";
 import { useNavigate } from 'react-router-dom';
 import ProfileModal from "../Modals/modalProfile/modalProfile.tsx";
@@ -15,6 +16,11 @@ const DropdownMenu = () => {
     };
     const handleClose = () => {
         setAnchorEl(null);
+    };
+
+    const handleLogout = () => {
+        Cookies.remove('user');
+        handleClose();
     };
 
     const handleNavigateToCars = () => {
@@ -43,7 +49,7 @@ const DropdownMenu = () => {
                 <ProfileModal handleProfileClose={handleClose} />
                 <MenuItem onClick={handleNavigateToCars}>Cars</MenuItem>
                 <LoginModal handleLoginClose={handleClose} />
-                <MenuItem onClick = { handleClose }>Logout</MenuItem>
+                <MenuItem onClick = { handleLogout }>Logout</MenuItem>
             </StyledMenuList>
         </StyledMenu>
     );
