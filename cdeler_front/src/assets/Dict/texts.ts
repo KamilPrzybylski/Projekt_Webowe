@@ -69,7 +69,7 @@ export const texts = {
         {
           id: 5,
           title: "Governing Law",
-          text: "These terms and conditions shall be governed by and construed in accordance with the laws of [Your Country], and you submit to the non-exclusive jurisdiction of the state and federal courts located in [Your State] for the resolution of any disputes."
+          text: "These terms and conditions shall be governed by and construed in accordance with the laws of Poland, and you submit to the non-exclusive jurisdiction of the state and federal courts located in Greater Poland for the resolution of any disputes."
         }
       ]
     },
