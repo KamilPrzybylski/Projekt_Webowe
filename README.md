@@ -21,7 +21,7 @@ nasze wysokie standardy jakości. Oferujemy szeroki zakres marek i modeli, aby s
 
 ## Podstrony
 
-- / - główna strona aplikacji
+- / - główna strona aplikacji, zawiera najważniejsze informacje dotyczące składania zamówień
 - /about - strona z informacjami o firmie
 - /cars - strona z dostępnymi samochodami
 - /contact - strona z formularzem kontaktowym
@@ -29,19 +29,48 @@ nasze wysokie standardy jakości. Oferujemy szeroki zakres marek i modeli, aby s
 - /sitemap - strona z mapą poruszania się po aplikacji
 - /terms - strona z regulaminem aplikacji
 
+## Komponenty współdzielone
+
+Na każdej podstronie znajdują się komponenty Header i Footer:
+- Header zawiera:
+  - odnośniki do najważniejszych podstron
+  - rozwijane menu z formularzem do logowania
+- Footer zawiera:
+  - informacje o autorach aplikacji
+  - mniej ważne linki
+
 ## Schemat bazy danych
 
 ![Schemat Bezy CDeler](cdeler_front/src/png/cdeler_db_schema.png)
 
 ## Zastosowane technologie
 
-- frontend - react
-- backend - nest.js
-- baza danych - mysql
-- połączenie z bazą danych - prisma
+- Frontend - React, StyledComponents
+- Backend - Nest.js
+- Baza danych - MySQL
+- Połączenie z bazą danych - Prisma
+- Testy - Jest
+- Logowanie - zrobione za pomocą Cookies
+- Serwer - aplikacja jest postawiona na Dockerze
+  - Kontener mysql
+    - Baza dostępna jest na porcie: 3306:3306
+  - Kontener phpmyadmin
+    - Panel bazy danych dostępny na porcie: 8080:80
+  - Kontener backend
+    - API dostępne na porcie: 3000:3000
+  - Kontener frontend
+    - Strona internetowa dostępna na porcie: 5173:5173
+
+## API
+
+- /cars - zwraca informacje dotyczące samochodów
+- /cars/used - zwraca dane samochodów używanych
+- /cars/new - zwraca dane samochodów nowych
+- /cars/:id - zwraca dane samochodu o ID podanym w parametrze :id
+- /auth/login - na tej ścieżce na metodzie POST odbywa się logowanie
 
 ## Podział zadań
 
 - Kamil Przybylski - backend, testy backendu, postawienie aplikacji na dockerze, stylowanie dla mobile, dokumentacja
 - Wojciech Weiss - zawartość, wygląd i wyświetlanie strony, logowanie
-- Jakub Wierzejewski - baza danych, backend, testy frontendu
+- Jakub Wierzejewski - baza danych, testy frontendu
