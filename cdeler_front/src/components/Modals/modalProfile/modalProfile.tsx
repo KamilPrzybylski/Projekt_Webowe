@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
-import {CustomDialog, CustomDialogTitle, CustomDialogContent, CustomDialogActions, UserInfo, UserDetail, CancelButton} from './modalProfile.style.tsx';
+import {CustomDialog, CustomDialogTitle, CustomDialogContent, CustomDialogActions, UserInfo, UserDetail, CancelButton, CustomDialogAction} from './modalProfile.style.tsx';
 import { Avatar, MenuItem } from '@mui/material';
+import LoginModal from '../modalLogin/modalLogin.tsx';
 
 interface Props {
     handleProfileClose: () => void;
@@ -9,6 +10,7 @@ interface Props {
 
   const ProfileModal: React.FC<Props> = ({ handleProfileClose }) => {
     const [open, setOpen] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('user') ? true : false);
     const [user, setUser] = useState<{ email: string; nr_tel: string; name: string; surname: string; }>({
       email: '',
       nr_tel: '',
@@ -26,6 +28,15 @@ interface Props {
     const handleProfileOpen = () => {
       setOpen(true);
     };
+
+    const handleLoginClose = () => {
+      setIsLoggedIn(true);
+    };
+
+    const handleLogout = () => {
+      Cookies.remove('user');
+      setIsLoggedIn(false);
+    };
   
     const handleProfileCloseModal = () => {
       setOpen(false);
@@ -36,15 +47,17 @@ interface Props {
       <>
         <MenuItem onClick={handleProfileOpen}>Profile</MenuItem>
         <CustomDialog open={open} onClose={handleProfileCloseModal}>
-          <CustomDialogTitle>Profile</CustomDialogTitle>
-          <CustomDialogContent>
-              {user?.email ? (
-                <Avatar sx={{ bgcolor: '#ff0000', width: 56, height: 56 }} >
+          <CustomDialogTitle>
+            Profile 
+            {user?.email ? (
+                <Avatar sx={{ bgcolor: '#595959', width: 56, height: 56 }} >
                   {user.email.charAt(0).toUpperCase()}
                 </Avatar>
               ) : (
-                <Avatar sx={{ bgcolor: '#ff0000', width: 56, height: 56 }}>?</Avatar>
+                <Avatar sx={{ bgcolor: '#595959', width: 56, height: 56 }}>?</Avatar>
               )}
+          </CustomDialogTitle>
+          <CustomDialogContent>
             <UserInfo>
               <UserDetail>Email: {user?.email || 'N/A'}</UserDetail>
               <UserDetail>Phone Number: {user?.phone || 'N/A'}</UserDetail>
@@ -52,6 +65,13 @@ interface Props {
               <UserDetail>Last Name: {user?.lastName || 'N/A'}</UserDetail>
             </UserInfo>
           </CustomDialogContent>
+          <CustomDialogAction>
+            {isLoggedIn ? (
+                    <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                ) : (
+                    <LoginModal handleLoginClose={handleLoginClose} />
+                )}
+          </CustomDialogAction>
           <CustomDialogActions>
             <CancelButton onClick={handleProfileCloseModal}>Close</CancelButton>
           </CustomDialogActions>

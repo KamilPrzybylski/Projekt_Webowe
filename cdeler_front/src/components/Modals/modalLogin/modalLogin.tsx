@@ -16,12 +16,14 @@ const LoginModal: React.FC<Props> = ({ handleLoginClose }) => {
     const [open, setOpen] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('user') ? true : false);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const [snackbarSeverity, setSnackbarSeverity] = useState<'success' | 'error'>('success');
   
     const handleLoginOpen = () => {
       setOpen(true);
+      setSnackbarOpen(true);
     };
   
     const handleLoginCloseModal = () => { 
@@ -89,11 +91,21 @@ const LoginModal: React.FC<Props> = ({ handleLoginClose }) => {
             <LoginButton onClick={handleLogin}>Login</LoginButton>
           </CustomDialogActions>
         </CustomDialog>
-        <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleSnackbarClose}>
-        <Alert onClose={handleSnackbarClose} severity={snackbarSeverity}>
-          {snackbarMessage}
-        </Alert>
-      </Snackbar>
+        {isLoggedIn ? (
+          <>
+            <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleSnackbarClose}>
+              <Alert onClose={handleSnackbarClose} severity={snackbarSeverity}>
+                {snackbarMessage}
+              </Alert>
+            </Snackbar>
+          </>
+          ) : (
+            <Snackbar open={snackbarOpen} autoHideDuration={500} onClose={handleSnackbarClose}>
+              <Alert onClose={handleSnackbarClose} severity= "info" >
+                Good luck!
+              </Alert>
+            </Snackbar>
+          )}
       </>
     );
   };
