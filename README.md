@@ -71,6 +71,6 @@ Na każdej podstronie znajdują się komponenty Header i Footer:
 
 ## Podział zadań
 
-- Kamil Przybylski - backend, testy backendu, postawienie aplikacji na dockerze, stylowanie dla mobile, dokumentacja
-- Wojciech Weiss - zawartość, wygląd i wyświetlanie strony, logowanie
-- Jakub Wierzejewski - baza danych, testy frontendu
+- Kamil Przybylski - backend, testy backendu, testy frontendu, postawienie aplikacji na dockerze, stylowanie dla mobile, dokumentacja
+- Wojciech Weiss - zawartość, wygląd i wyświetlanie strony, logowanie, testy frontendu
+- Jakub Wierzejewski - baza danych
