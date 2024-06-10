@@ -1,10 +1,10 @@
 import * as React from "react";
-import {StyledMenuIcon, StyledMenu, StyledMenuList} from './dropDownMenu.style.tsx';
+import {StyledMenuIcon, StyledMenu, StyledMenuList} from './dropDownMenu.style';
 import MenuItem from '@mui/material/MenuItem';
 import Cookies from "js-cookie";
-import LoginModal from "../Modals/modalLogin/modalLogin.tsx";
+import LoginModal from "../Modals/modalLogin/modalLogin";
 import { useNavigate } from 'react-router-dom';
-import ProfileModal from "../Modals/modalProfile/modalProfile.tsx";
+import ProfileModal from "../Modals/modalProfile/modalProfile";
 
 const DropdownMenu = () => {
     const [anchorEl, setAnchorEl] = React.useState<null | SVGSVGElement>(null);

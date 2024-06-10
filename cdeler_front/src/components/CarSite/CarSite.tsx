@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { CarContainer, CarItem } from './CarSite.style.tsx';
-import CarDetails from '../CarContainer/CarContainer.tsx';
+import { CarContainer, CarItem } from './CarSite.style';
+import CarDetails from '../CarContainer/CarContainer';
 
 interface Fuel {
   type: string;

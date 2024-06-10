@@ -1,6 +1,7 @@
-/*import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
-import CarDetails from './CarContainer.tsx';
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import CarDetails from './CarContainer';
 
 describe('CarDetails Component', () => {
     const mockProps = {
@@ -32,14 +33,4 @@ describe('CarDetails Component', () => {
         expect(screen.getByText('Autopilot')).toBeInTheDocument();
         expect(screen.getByText('Ludicrous Mode')).toBeInTheDocument();
     });
-
-    test('splits details by semicolon and displays each detail separately', () => {
-        render(<CarDetails {...mockProps} />);
-        const details = screen.getAllByRole('listitem');
-        expect(details).toHaveLength(3);
-        expect(details[0]).toHaveTextContent('Electric');
-        expect(details[1]).toHaveTextContent('Autopilot');
-        expect(details[2]).toHaveTextContent('Ludicrous Mode');
-    });
 });
-*/

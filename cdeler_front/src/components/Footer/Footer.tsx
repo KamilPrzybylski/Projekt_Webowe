@@ -1,7 +1,8 @@
-import "./Footer.style.tsx";
+import "./Footer.style";
 import miniLogo from "../../png/logo-white.png";
-import { FooterContainer, Side, ImgSide } from "./Footer.style.tsx";
+import { FooterContainer, Side, ImgSide } from "./Footer.style";
 import { Link } from 'react-router-dom';
+import React from "react";
 
 const Footer: React.FC = () => {
     return (

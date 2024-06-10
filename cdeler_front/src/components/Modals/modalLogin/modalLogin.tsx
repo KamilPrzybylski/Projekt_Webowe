@@ -87,7 +87,7 @@ const LoginModal: React.FC<Props> = ({ handleLoginClose }) => {
             />
           </CustomDialogContent>
           <CustomDialogActions>
-            <CancelButton onClick={handleLoginCloseModal}>Cancel</CancelButton> {/* Poprawiamy nazwę funkcji */}
+            <CancelButton onClick={handleLoginCloseModal}>Cancel</CancelButton>
             <LoginButton onClick={handleLogin}>Login</LoginButton>
           </CustomDialogActions>
         </CustomDialog>

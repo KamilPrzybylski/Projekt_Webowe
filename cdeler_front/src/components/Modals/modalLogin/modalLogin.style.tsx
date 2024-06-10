@@ -25,9 +25,12 @@ export const CustomDialogContent = styled(DialogContent)`
 
 export const StyledTextField = styled(TextField)`
   && {
-    color: #fff;
+    color: #fff !important;
     .MuiOutlinedInput-notchedOutline {
         border-color: #e53935;
+    }
+    .MuiInputBase-input: {
+        color: #fff !important;
     }
     .MuiInputLabel-root {
         color: #fff;

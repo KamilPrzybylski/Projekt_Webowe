@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
-import {CustomDialog, CustomDialogTitle, CustomDialogContent, CustomDialogActions, UserInfo, UserDetail, CancelButton, CustomDialogAction} from './modalProfile.style.tsx';
+import {CustomDialog, CustomDialogTitle, CustomDialogContent, CustomDialogActions, UserInfo, UserDetail, CancelButton, CustomDialogAction} from './modalProfile.style';
 import { Avatar, MenuItem } from '@mui/material';
-import LoginModal from '../modalLogin/modalLogin.tsx';
+import LoginModal from '../modalLogin/modalLogin';
 
 interface Props {
     handleProfileClose: () => void;
@@ -11,11 +11,11 @@ interface Props {
   const ProfileModal: React.FC<Props> = ({ handleProfileClose }) => {
     const [open, setOpen] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('user') ? true : false);
-    const [user, setUser] = useState<{ email: string; nr_tel: string; name: string; surname: string; }>({
+    const [user, setUser] = useState<{ email: string; phone: string; firstName: string; lastName: string; }>({
       email: '',
-      nr_tel: '',
-      name: '',
-      surname: '',
+      phone: '',
+      firstName: '',
+      lastName: '',
     });
   
     useEffect(() => {
@@ -59,10 +59,10 @@ interface Props {
           </CustomDialogTitle>
           <CustomDialogContent>
             <UserInfo>
-              <UserDetail>Email: {user?.email || 'N/A'}</UserDetail>
-              <UserDetail>Phone Number: {user?.phone || 'N/A'}</UserDetail>
-              <UserDetail>First Name: {user?.firstName || 'N/A'}</UserDetail>
-              <UserDetail>Last Name: {user?.lastName || 'N/A'}</UserDetail>
+              <UserDetail data-testid="email">Email: {user?.email || 'N/A'}</UserDetail>
+              <UserDetail data-testid="phone">Phone Number: {user?.phone || 'N/A'}</UserDetail>
+              <UserDetail data-testid="first">First Name: {user?.firstName || 'N/A'}</UserDetail>
+              <UserDetail data-testid="last">Last Name: {user?.lastName || 'N/A'}</UserDetail>
             </UserInfo>
           </CustomDialogContent>
           <CustomDialogAction>
@@ -73,7 +73,7 @@ interface Props {
                 )}
           </CustomDialogAction>
           <CustomDialogActions>
-            <CancelButton onClick={handleProfileCloseModal}>Close</CancelButton>
+            <CancelButton onClick={handleProfileCloseModal} data-testid="close">Close</CancelButton>
           </CustomDialogActions>
         </CustomDialog>
       </>

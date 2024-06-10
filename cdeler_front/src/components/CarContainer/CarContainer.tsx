@@ -1,5 +1,5 @@
 import React from 'react';
-import { CarModel, CarManufacturer, DetailsGrid, DetailItem, InfoContainer, CarImage, ImageContainer, CarDetailsContainer } from './CarContainer.style.tsx';
+import { CarModel, CarManufacturer, DetailsGrid, DetailItem, InfoContainer, CarImage, ImageContainer, CarDetailsContainer } from './CarContainer.style';
 
 interface CarDetailsProps {
   image: string;
