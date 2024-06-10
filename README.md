@@ -73,4 +73,4 @@ Na każdej podstronie znajdują się komponenty Header i Footer:
 
 - Kamil Przybylski - backend, testy backendu, testy frontendu, postawienie aplikacji na dockerze, stylowanie dla mobile, dokumentacja
 - Wojciech Weiss - zawartość, wygląd i wyświetlanie strony, logowanie, testy frontendu
-- Jakub Wierzejewski - baza danych
+- Jakub Wierzejewski - baza danych, testy frontendu
